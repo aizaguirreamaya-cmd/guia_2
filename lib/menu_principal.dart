@@ -28,7 +28,9 @@ class MenuPrincipal extends StatelessWidget {
             ElevatedButton(
               onPressed: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (_) => const FormularioProveedores()),
+                MaterialPageRoute(
+                  builder: (_) => const FormularioProveedores(),
+                ),
               ),
               child: const Text('Registro de Proveedores'),
             ),

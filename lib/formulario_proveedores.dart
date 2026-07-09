@@ -42,9 +42,9 @@ class _FormularioProveedoresState extends State<FormularioProveedores> {
       );
       return;
     }
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Proveedor registrado')),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text('Proveedor registrado')));
     Navigator.pop(context);
   }
 
@@ -61,28 +61,39 @@ class _FormularioProveedoresState extends State<FormularioProveedores> {
               TextFormField(
                 controller: _codigoC,
                 decoration: const InputDecoration(labelText: 'Código'),
-                validator: (v) => (v == null || v.trim().isEmpty) ? 'Requerido' : null,
+                validator: (v) =>
+                    (v == null || v.trim().isEmpty) ? 'Requerido' : null,
               ),
               TextFormField(
                 controller: _empresaC,
-                decoration: const InputDecoration(labelText: 'Nombre de la empresa'),
-                validator: (v) => (v == null || v.trim().isEmpty) ? 'Requerido' : null,
+                decoration: const InputDecoration(
+                  labelText: 'Nombre de la empresa',
+                ),
+                validator: (v) =>
+                    (v == null || v.trim().isEmpty) ? 'Requerido' : null,
               ),
               TextFormField(
                 controller: _contactoC,
-                decoration: const InputDecoration(labelText: 'Nombre del contacto'),
-                validator: (v) => (v == null || v.trim().isEmpty) ? 'Requerido' : null,
+                decoration: const InputDecoration(
+                  labelText: 'Nombre del contacto',
+                ),
+                validator: (v) =>
+                    (v == null || v.trim().isEmpty) ? 'Requerido' : null,
               ),
               TextFormField(
                 controller: _telefonoC,
                 decoration: const InputDecoration(labelText: 'Teléfono'),
-                validator: (v) => (v == null || v.trim().isEmpty) ? 'Requerido' : null,
+                validator: (v) =>
+                    (v == null || v.trim().isEmpty) ? 'Requerido' : null,
               ),
               TextFormField(
                 controller: _correoC,
-                decoration: const InputDecoration(labelText: 'Correo electrónico'),
+                decoration: const InputDecoration(
+                  labelText: 'Correo electrónico',
+                ),
                 keyboardType: TextInputType.emailAddress,
-                validator: (v) => (v == null || v.trim().isEmpty) ? 'Requerido' : null,
+                validator: (v) =>
+                    (v == null || v.trim().isEmpty) ? 'Requerido' : null,
               ),
               const SizedBox(height: 16),
               ElevatedButton(onPressed: _guardar, child: const Text('Guardar')),

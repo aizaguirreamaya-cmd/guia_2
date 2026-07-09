@@ -21,7 +21,9 @@ class _InventarioProductosState extends State<InventarioProductos> {
             margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             child: ListTile(
               title: Text('${p.codigo} - ${p.nombre}'),
-              subtitle: Text('Categoría: ${p.categoria}\nPrecio: ${p.precio.toStringAsFixed(2)}\nCantidad: ${p.cantidad}'),
+              subtitle: Text(
+                'Categoría: ${p.categoria}\nPrecio: ${p.precio.toStringAsFixed(2)}\nCantidad: ${p.cantidad}',
+              ),
             ),
           );
         },

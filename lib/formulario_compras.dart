@@ -52,9 +52,9 @@ class _FormularioComprasState extends State<FormularioCompras> {
       );
       return;
     }
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Compra registrada')),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text('Compra registrada')));
     Navigator.pop(context);
   }
 
@@ -70,34 +70,53 @@ class _FormularioComprasState extends State<FormularioCompras> {
             children: [
               TextFormField(
                 controller: _numeroC,
-                decoration: const InputDecoration(labelText: 'Número de compra'),
-                validator: (v) => (v == null || v.trim().isEmpty) ? 'Requerido' : null,
+                decoration: const InputDecoration(
+                  labelText: 'Número de compra',
+                ),
+                validator: (v) =>
+                    (v == null || v.trim().isEmpty) ? 'Requerido' : null,
               ),
               TextFormField(
                 controller: _codigoProductoC,
-                decoration: const InputDecoration(labelText: 'Código del producto'),
-                validator: (v) => (v == null || v.trim().isEmpty) ? 'Requerido' : null,
+                decoration: const InputDecoration(
+                  labelText: 'Código del producto',
+                ),
+                validator: (v) =>
+                    (v == null || v.trim().isEmpty) ? 'Requerido' : null,
               ),
               TextFormField(
                 controller: _codigoProveedorC,
-                decoration: const InputDecoration(labelText: 'Código del proveedor'),
-                validator: (v) => (v == null || v.trim().isEmpty) ? 'Requerido' : null,
+                decoration: const InputDecoration(
+                  labelText: 'Código del proveedor',
+                ),
+                validator: (v) =>
+                    (v == null || v.trim().isEmpty) ? 'Requerido' : null,
               ),
               TextFormField(
                 controller: _cantidadC,
-                decoration: const InputDecoration(labelText: 'Cantidad comprada'),
+                decoration: const InputDecoration(
+                  labelText: 'Cantidad comprada',
+                ),
                 keyboardType: TextInputType.number,
                 validator: (v) {
                   if (v == null || v.trim().isEmpty) return 'Requerido';
-                  if (int.tryParse(v.trim()) == null) return 'Debe ser numérico';
+                  if (int.tryParse(v.trim()) == null)
+                    return 'Debe ser numérico';
                   return null;
                 },
               ),
               const SizedBox(height: 8),
               Row(
                 children: [
-                  Expanded(child: Text('Fecha: ${_fecha.toLocal().toString().split(' ')[0]}')),
-                  ElevatedButton(onPressed: _selectFecha, child: const Text('Seleccionar')),
+                  Expanded(
+                    child: Text(
+                      'Fecha: ${_fecha.toLocal().toString().split(' ')[0]}',
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: _selectFecha,
+                    child: const Text('Seleccionar'),
+                  ),
                 ],
               ),
               const SizedBox(height: 16),
