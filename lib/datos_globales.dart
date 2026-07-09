@@ -52,6 +52,29 @@ class Compra {
 List<Producto> productos = [];
 List<Proveedor> proveedores = [];
 List<Compra> compras = [];
+// Clientes (nuevo módulo de ampliación)
+class Cliente {
+  final String codigo;
+  final String nombre;
+  final String telefono;
+  final String direccion;
+
+  Cliente({
+    required this.codigo,
+    required this.nombre,
+    required this.telefono,
+    required this.direccion,
+  });
+}
+
+List<Cliente> clientes = [];
+
+bool agregarCliente(Cliente c) {
+  if (clientes.any((e) => e.codigo == c.codigo)) return false;
+  clientes.add(c);
+  return true;
+}
+
 
 // Funciones de ayuda
 bool agregarProducto(Producto p) {
